@@ -63,7 +63,7 @@ func BenchmarkStackMu(b *testing.B) {
 	b.ResetTimer()
 	s := new(StackMu)
 	var wg1 sync.WaitGroup
-	for i := 0; i < 400000; i++ {
+	for i := 0; i < b.N; i++ {
 		wg1.Add(1)
 		go func(i int) {
 			defer wg1.Done()
